@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kolli Krupa Johnson · AI Engineer</title>
+  <meta name="description" content="Kolli Krupa Johnson, AI Engineer building LLM applications, AI agents and RAG systems. 6 production systems shipped, PyPI package published, AWS and Azure certified.">
+  <meta name="author" content="Kolli Krupa Johnson">
+  <meta name="theme-color" content="#F6F7F9">
+
+  <!-- Social preview. Once your domain is live, change these two URLs to absolute ones,
+       e.g. https://yourdomain.com/ and https://yourdomain.com/og-image.png -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kolli Krupa Johnson · AI Engineer">
+  <meta property="og:description" content="AI Engineer building LLM applications, AI agents and RAG systems.">
+  <meta property="og:url" content="/">
+  <meta property="og:image" content="/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- Fonts are self-hosted (no third-party requests). The two above-the-fold faces are preloaded. -->
+  <link rel="preload" href="/assets/fonts/sora.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/plex-400.woff2" as="font" type="font/woff2" crossorigin>
+
+  <script>
+    // Light by default; apply a saved choice before first paint so there is no flash.
+    (function () {
+      var d = document.documentElement, t = null;
+      d.classList.add('js');
+      try { t = localStorage.getItem('theme'); } catch (e) {}
+      d.setAttribute('data-theme', t === 'dark' ? 'dark' : 'light');
+    })();
+  </script>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip" href="#about">Skip to content</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="top">
+    <div class="wrap nav__inner">
+      <a href="#home" class="nav__logo" aria-label="Back to top">KKJ</a>
+
+      <nav class="nav__links" id="nav-links" aria-label="Main">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav__actions">
+        <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch colour theme">
+          <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+        </button>
+        <a class="btn btn--sm btn--outline nav__resume" href="/resume.html" target="_blank" rel="noopener" data-resume>Resume</a>
+        <button class="icon-btn nav__burger" id="nav-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+      <div class="wrap hero__grid">
+        <div class="hero__text">
+          <p class="eyebrow">hi, I'm</p>
+          <h1 class="hero__name">Kolli Krupa Johnson</h1>
+          <p class="hero__headline">AI Engineer building LLM applications, AI agents and RAG systems.</p>
+          <p class="hero__lead">I build multi-agent platforms, retrieval pipelines and the Python backends that run them in production.</p>
+          <p class="hero__proof mono">6 production systems shipped · PyPI package published · AWS + Azure certified</p>
+          <div class="hero__cta">
+            <a class="btn btn--primary" href="#projects">View projects</a>
+            <a class="btn btn--outline" href="https://github.com/Krupa1316" target="_blank" rel="noopener">
+              <svg class="ui-icon" aria-hidden="true"><use href="/assets/icons.svg#i-github"/></svg>GitHub
+            </a>
+            <a class="link" href="/resume.html" target="_blank" rel="noopener" data-resume>View resume</a>
+          </div>
+          <p class="hero__loc"><svg class="ic ic--sm" aria-hidden="true"><use href="/assets/icons.svg#i-map-pin"/></svg>Hyderabad, India · Open to relocation</p>
+        </div>
+
+        <div class="hero__visual">
+          <div class="term" aria-label="Terminal showing the zonny CLI installing, scanning and deploying a project">
+            <div class="term__bar"><span class="dot r"></span><span class="dot a"></span><span class="dot g"></span><span class="term__title">zonny — bash</span></div>
+            <pre class="term__body" id="hero-term"><span class="tl"><span class="p">$</span> pip install zonny</span>
+<span class="tl ok">✓ installed zonny</span>
+<span class="tl"><span class="p">$</span> zonny scan .</span>
+<span class="tl ok">✓ detected: python · fastapi · port 8000</span>
+<span class="tl"><span class="p">$</span> zonny deploy --target docker</span>
+<span class="tl ok">✓ deployed in 1 command</span></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section reveal" id="about">
+      <div class="wrap">
+        <p class="eyebrow">// about</p>
+        <h2 class="section__title">About me</h2>
+
+        <div class="about">
+          <!-- To use a headshot instead: replace this div with
+               <img class="about__photo" src="/headshot.jpg" alt="Kolli Krupa Johnson" width="280" height="280"> -->
+          <div class="about__photo about__photo--mono" aria-hidden="true">KKJ</div>
+
+          <div class="about__body">
+            <p>I'm Kolli, a Computer Science graduate from KLEF with a Data Science specialization and a 9.1 CGPA. I work as a Software Engineer and GenAI Developer Intern at Systems Group in Hyderabad, where I've shipped 6 production systems and lead the database design for BeverageOS, a point-of-sale and kitchen display platform.</p>
+            <p>Outside work I build AI systems end to end. Zonny is a local multi-agent platform where six AI agents turn a text prompt into a working web app. Its companion CLI, published on PyPI, deploys any project with one command. The Geospatial Intelligence Foundry is an ontology engine that sends each decision from rules to ML to an LLM, with every step auditable.</p>
+            <p>I'm most interested in agentic AI, knowledge graphs and federated learning, and I want my work to end up in the space industry one day.</p>
+
+            <dl class="facts">
+              <div><dt>Based in</dt><dd>Hyderabad, India</dd></div>
+              <div><dt>Focus</dt><dd>LLM apps · Agents · RAG</dd></div>
+              <div><dt>Education</dt><dd>B.Tech CSE, CGPA 9.1</dd></div>
+              <div><dt>Status</dt><dd>Open to full-time roles</dd></div>
+            </dl>
+            <p class="muted small">Off-screen: photography, motorcycling, cricket and badminton.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section reveal" id="experience">
+      <div class="wrap">
+        <p class="eyebrow">// experience</p>
+        <h2 class="section__title">Where I've worked</h2>
+
+        <div class="card role">
+          <div class="role__head">
+            <div class="role__logo" aria-hidden="true">SG</div>
+            <div class="role__who">
+              <h3>Software Engineer / GenAI Developer Intern</h3>
+              <p class="muted">Systems Group · Hyderabad</p>
+            </div>
+            <p class="role__date mono muted">Oct 2025 – Present</p>
+          </div>
+          <p class="role__summary">Shipped 6 production systems across engineering tools, cloud streaming, collaboration and LLM operations, and lead the database design for BeverageOS.</p>
+        </div>
+
+        <ol class="timeline">
+          <li class="tl-item">
+            <div class="tl-item__head">
+              <svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-martini"/></svg>
+              <h4>BeverageOS</h4>
+              <span class="badge badge--amber">Tech Lead</span>
+              <button class="tl-toggle" type="button" aria-expanded="false" aria-controls="bev-more" aria-label="Show more about BeverageOS">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+              </button>
+            </div>
+            <p>Designed the PostgreSQL schema for a beverage POS and kitchen display platform, covering modifier groups, ingredient ownership and kitchen-display JSON. Modeled inventory and recipes with 245 real supplier items, and led the move to a NestJS modular monolith.</p>
+            <ul class="tl-more" id="bev-more" hidden>
+              <li>Wrote a kitchen-display JSON spec for 5 real drinks.</li>
+              <li>Reviewed the product requirement documents with a gap analysis, and built UI mockups for the Foundation and Ingredient Master modules.</li>
+              <li>Reviewed the legal and security feasibility of a QR → WhatsApp → UPI payment flow.</li>
+            </ul>
+            <ul class="chips"><li>NestJS</li><li>Next.js</li><li>PostgreSQL</li><li>Supabase</li><li>Docker Compose</li></ul>
+          </li>
+          <li class="tl-item">
+            <div class="tl-item__head"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-activity"/></svg><h4>LLM Observability Stack</h4></div>
+            <p>Improved LLM inference reliability by tracking 3 production metrics with structured logging and live health dashboards.</p>
+            <ul class="chips"><li>Python</li></ul>
+          </li>
+          <li class="tl-item">
+            <div class="tl-item__head"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-gamepad-2"/></svg><h4>Pixel Streaming Platform</h4></div>
+            <p>Cut project onboarding from hours to minutes with a 4-stage provisioning pipeline, 3-tier access control and session queuing.</p>
+          </li>
+          <li class="tl-item">
+            <div class="tl-item__head"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-folder-kanban"/></svg><h4>WorkStream</h4></div>
+            <p>Replaced 3 separate tools with 1 platform for a sister company: tasks, team hierarchy, document versions and messaging.</p>
+          </li>
+          <li class="tl-item">
+            <div class="tl-item__head"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-drafting-compass"/></svg><h4>CAD Comparison Tool</h4></div>
+            <p>Removed manual drawing review across 3 change types with a 4-stage pipeline: parse, diff, visualize, PDF report.</p>
+          </li>
+          <li class="tl-item">
+            <div class="tl-item__head"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-graduation-cap"/></svg><h4>LMS Teacher Dashboard</h4></div>
+            <p>Brought class management, assignment tracking and quizzes for teachers into one dashboard.</p>
+          </li>
+          <li class="tl-item">
+            <div class="tl-item__head"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-tv"/></svg><h4>Distro Streaming</h4></div>
+            <p>Built secure kiosk streaming with a Flutter Android client and a virtualized server backend.</p>
+            <ul class="chips"><li>Flutter</li><li>Android</li></ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section reveal" id="projects">
+      <div class="wrap">
+        <p class="eyebrow">// projects</p>
+        <h2 class="section__title">Things I've built</h2>
+
+        <!-- Flagship 1 -->
+        <article class="card flagship">
+          <div class="flagship__visual">
+            <svg class="diagram" viewBox="0 70 700 300" role="img" aria-label="Diagram: a prompt flows through six AutoGen agents (CEO, Architect, Frontend and Backend, QA, Reviewer) into a web app, with an auto-repair loop from QA back to the engineers, up to 3 times">
+              <defs>
+                <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" class="d-head"/></marker>
+                <marker id="arr-r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" class="d-head-r"/></marker>
+              </defs>
+              <rect x="100" y="92" width="482" height="216" rx="14" class="d-group"/>
+              <text x="114" y="84" class="d-label">6 AutoGen agents</text>
+
+              <g class="d-node"><rect x="8" y="178" width="76" height="48" rx="8"/><text x="46" y="207">Prompt</text></g>
+              <g class="d-node"><rect x="116" y="180" width="64" height="44" rx="8"/><text x="148" y="207">CEO</text></g>
+              <g class="d-node"><rect x="200" y="180" width="84" height="44" rx="8"/><text x="242" y="207">Architect</text></g>
+              <g class="d-node"><rect x="306" y="118" width="84" height="44" rx="8"/><text x="348" y="145">Frontend</text></g>
+              <g class="d-node"><rect x="306" y="238" width="84" height="44" rx="8"/><text x="348" y="265">Backend</text></g>
+              <g class="d-node"><rect x="414" y="180" width="56" height="44" rx="8"/><text x="442" y="207">QA</text></g>
+              <g class="d-node"><rect x="490" y="180" width="80" height="44" rx="8"/><text x="530" y="207">Reviewer</text></g>
+              <g class="d-node d-node--out"><rect x="600" y="174" width="92" height="56" rx="8"/><text x="646" y="199">Web app</text><text x="646" y="217" class="d-sub">deployed</text></g>
+
+              <g class="d-edge">
+                <path d="M84 202H114" marker-end="url(#arr)"/>
+                <path d="M180 202H198" marker-end="url(#arr)"/>
+                <path d="M284 196C296 196 294 140 304 140" marker-end="url(#arr)"/>
+                <path d="M284 208C296 208 294 260 304 260" marker-end="url(#arr)"/>
+                <path d="M390 140C402 140 400 196 412 196" marker-end="url(#arr)"/>
+                <path d="M390 260C402 260 400 208 412 208" marker-end="url(#arr)"/>
+                <path d="M470 202H488" marker-end="url(#arr)"/>
+                <path d="M570 202H598" marker-end="url(#arr)"/>
+              </g>
+              <path class="d-repair" d="M442 224C442 350 348 350 348 284" marker-end="url(#arr-r)"/>
+              <text x="395" y="360" class="d-label d-label--r">auto-repair ×3</text>
+            </svg>
+          </div>
+          <div class="flagship__body">
+            <span class="badge badge--amber">Flagship</span>
+            <h3 class="flagship__title"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-bot"/></svg> Zonny001</h3>
+            <p class="muted">Six AI agents that turn a text prompt into a working web app, entirely on your own machine.</p>
+            <ul class="bullets">
+              <li>A "Software Company" of 6 AutoGen agents (CEO, architect, frontend, backend, QA, reviewer) plans, builds and reviews a web app from one prompt.</li>
+              <li>An auto-repair loop catches JavaScript errors and sends them back to the engineer agents, with up to 3 fix attempts.</li>
+              <li>Browser IDE with a Monaco editor, file explorer and terminal; also a CLI, a REST API and an MCP server for Claude Desktop.</li>
+              <li>ChromaDB memory, 3 permission tiers (safe, dev, full) and a 35-check diagnostic suite.</li>
+            </ul>
+            <ul class="chips"><li>Python</li><li>FastAPI</li><li>AutoGen</li><li>Ollama</li><li>ChromaDB</li><li>MCP</li><li>Monaco</li><li>xterm.js</li></ul>
+            <div class="flagship__links">
+              <!-- TODO: replace with the Zonny001 repo URL -->
+              <a class="btn btn--sm btn--outline" href="https://github.com/Krupa1316" target="_blank" rel="noopener"><svg class="ui-icon" aria-hidden="true"><use href="/assets/icons.svg#i-github"/></svg>GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Flagship 2 -->
+        <article class="card flagship">
+          <div class="flagship__visual">
+            <div class="term term--cover">
+              <div class="term__bar"><span class="dot r"></span><span class="dot a"></span><span class="dot g"></span><span class="term__title">zonny — tree</span></div>
+<pre class="term__body"><span class="p">$</span> zonny tree .
+my-app/
+├── app/
+│   ├── main.py <span class="c">· FastAPI</span>
+│   │   ├── <span class="fn">create_app()</span>
+│   │   └── <span class="fn">health()</span>
+│   └── routes/
+│       └── <span class="fn">deploy_handler()</span>
+├── tests/ <span class="c">· pytest</span>
+└── deploy/
+    ├── Dockerfile <span class="ok">· generated</span>
+    └── docker-compose.yml <span class="ok">· generated</span></pre>
+            </div>
+          </div>
+          <div class="flagship__body">
+            <span class="badge badge--amber">Flagship</span>
+            <h3 class="flagship__title"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-cog"/></svg> ZonnyHelper</h3>
+            <p class="muted">Scan any project and deploy it with one command, with AI help for Git.</p>
+            <ul class="bullets">
+              <li>Detects a project's language, framework, port and environment, then generates and runs deploy configs for Docker, docker-compose, Kubernetes, Fly.io and systemd, with live logs and rollback.</li>
+              <li>Publishes local apps to the internet through Cloudflare Tunnels.</li>
+              <li>Maps codebases across 20+ languages with tree-sitter and exports to Mermaid, Markdown or JSON.</li>
+              <li>AI Git commands write commit messages, PR descriptions, changelogs and CI failure diagnoses, using Claude, OpenAI, Gemini or local Ollama.</li>
+            </ul>
+            <ul class="chips"><li>Python</li><li>tree-sitter</li><li>Docker</li><li>Kubernetes</li><li>cloudflared</li><li>pytest</li></ul>
+            <div class="flagship__links">
+              <!-- TODO: replace with the ZonnyHelper repo URL -->
+              <a class="btn btn--sm btn--outline" href="https://github.com/Krupa1316" target="_blank" rel="noopener"><svg class="ui-icon" aria-hidden="true"><use href="/assets/icons.svg#i-github"/></svg>GitHub</a>
+              <a class="btn btn--sm btn--outline" href="https://pypi.org/project/zonny/" target="_blank" rel="noopener">PyPI<svg class="ui-icon" aria-hidden="true"><use href="/assets/icons.svg#i-external-link"/></svg></a>
+              <button class="copy-pill mono" type="button" data-copy="pip install zonny" aria-label="Copy install command">
+                <span>pip install zonny</span><svg class="ui-icon" aria-hidden="true"><use href="/assets/icons.svg#i-copy"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Standard cards. Add a footer link only where a public repo exists. -->
+        <div class="grid">
+          <article class="card pcard">
+            <div class="pcard__cover"><svg class="ic pcard__icon" aria-hidden="true"><use href="/assets/icons.svg#i-globe"/></svg><div class="logos"><svg class="si" role="img" aria-label="Python" style="--b:#3776AB"><title>Python</title><use href="/assets/icons.svg#si-python"/></svg><svg class="si" role="img" aria-label="Neo4j" style="--b:#4581C3"><title>Neo4j</title><use href="/assets/icons.svg#si-neo4j"/></svg><svg class="si" role="img" aria-label="PostgreSQL" style="--b:#4169E1"><title>PostgreSQL</title><use href="/assets/icons.svg#si-postgresql"/></svg><svg class="si" role="img" aria-label="Redis" style="--b:#FF4438"><title>Redis</title><use href="/assets/icons.svg#si-redis"/></svg></div></div>
+            <div class="pcard__body">
+              <div class="pcard__head"><h3>Geospatial Intelligence Foundry</h3><span class="mono muted small">2024–2025</span></div>
+              <p class="pcard__desc">A self-extending ontology engine that decides whether each new entity extends, creates, merges or is quarantined. Rules first, then ML, then an LLM, every decision auditable.</p>
+              <ul class="chips"><li>Python</li><li>Memgraph</li><li>PostGIS</li><li>TimescaleDB</li><li>Qdrant</li><li>Redis</li><li>MinIO</li></ul>
+            </div>
+          </article>
+
+          <article class="card pcard">
+            <div class="pcard__cover"><svg class="ic pcard__icon" aria-hidden="true"><use href="/assets/icons.svg#i-chart-column"/></svg><div class="logos"><svg class="si" role="img" aria-label="Streamlit" style="--b:#FF4B4B"><title>Streamlit</title><use href="/assets/icons.svg#si-streamlit"/></svg><svg class="si" role="img" aria-label="Plotly" style="--b:#3F4F75"><title>Plotly</title><use href="/assets/icons.svg#si-plotly"/></svg><svg class="si" role="img" aria-label="Hugging Face" style="--b:#FFD21E"><title>Hugging Face</title><use href="/assets/icons.svg#si-huggingface"/></svg><svg class="si" role="img" aria-label="Python" style="--b:#3776AB"><title>Python</title><use href="/assets/icons.svg#si-python"/></svg></div></div>
+            <div class="pcard__body">
+              <div class="pcard__head"><h3>GenAI Data Visualization Tool</h3></div>
+              <p class="pcard__desc">Upload a CSV, ask a question in plain English, and get an interactive chart, with data profiling and quality checks built in.</p>
+              <ul class="chips"><li>Python</li><li>Streamlit</li><li>Plotly</li><li>spaCy</li><li>Transformers</li></ul>
+            </div>
+            <!-- TODO: replace with the repo URL -->
+            <a class="pcard__foot" href="https://github.com/Krupa1316" target="_blank" rel="noopener"><svg class="ui-icon" aria-hidden="true"><use href="/assets/icons.svg#i-github"/></svg>View on GitHub</a>
+          </article>
+
+          <article class="card pcard">
+            <div class="pcard__cover"><svg class="ic pcard__icon" aria-hidden="true"><use href="/assets/icons.svg#i-message-square-warning"/></svg><div class="logos"><svg class="si" role="img" aria-label="Python" style="--b:#3776AB"><title>Python</title><use href="/assets/icons.svg#si-python"/></svg><svg class="si" role="img" aria-label="LangChain" style="--b:#1C3C3C" data-bd><title>LangChain</title><use href="/assets/icons.svg#si-langchain"/></svg></div></div>
+            <div class="pcard__body">
+              <div class="pcard__head"><h3>LLM Complaint Management Agent</h3><span class="mono muted small">2026</span></div>
+              <p class="pcard__desc">A complaint-handling workflow built as a LangGraph state graph running on Groq-hosted LLMs.</p>
+              <ul class="chips"><li>Python</li><li>LangGraph</li><li>Groq</li></ul>
+            </div>
+          </article>
+
+          <article class="card pcard">
+            <div class="pcard__cover"><svg class="ic pcard__icon" aria-hidden="true"><use href="/assets/icons.svg#i-shield-check"/></svg><div class="logos"><svg class="si" role="img" aria-label="PyTorch" style="--b:#EE4C2C"><title>PyTorch</title><use href="/assets/icons.svg#si-pytorch"/></svg><svg class="si" role="img" aria-label="Python" style="--b:#3776AB"><title>Python</title><use href="/assets/icons.svg#si-python"/></svg></div></div>
+            <div class="pcard__body">
+              <div class="pcard__head"><h3>FedFusion</h3><span class="mono muted small">2024</span></div>
+              <p class="pcard__desc">YOLOv8 trained across distributed devices with federated averaging and differential privacy, staying stable on uneven data.</p>
+              <ul class="chips"><li>PyTorch</li><li>YOLOv8</li><li>FedAvg</li></ul>
+            </div>
+          </article>
+
+          <article class="card pcard">
+            <div class="pcard__cover"><svg class="ic pcard__icon" aria-hidden="true"><use href="/assets/icons.svg#i-eye"/></svg><div class="logos"><svg class="si" role="img" aria-label="Raspberry Pi" style="--b:#A22846"><title>Raspberry Pi</title><use href="/assets/icons.svg#si-raspberrypi"/></svg><svg class="si" role="img" aria-label="TensorFlow" style="--b:#FF6F00"><title>TensorFlow</title><use href="/assets/icons.svg#si-tensorflow"/></svg><svg class="si" role="img" aria-label="OpenCV" style="--b:#5C3EE8"><title>OpenCV</title><use href="/assets/icons.svg#si-opencv"/></svg></div></div>
+            <div class="pcard__body">
+              <div class="pcard__head"><h3>Autonomous Vision System</h3><span class="mono muted small">2024</span></div>
+              <p class="pcard__desc">Real-time object detection on a Raspberry Pi 4 with no cloud, driving motors directly from what it sees.</p>
+              <ul class="chips"><li>TFLite</li><li>MobileNet SSD</li><li>OpenCV</li><li>Raspberry Pi</li></ul>
+            </div>
+          </article>
+
+          <article class="card pcard">
+            <div class="pcard__cover"><svg class="ic pcard__icon" aria-hidden="true"><use href="/assets/icons.svg#i-sprout"/></svg><div class="logos"><svg class="si" role="img" aria-label="Flutter" style="--b:#02569B"><title>Flutter</title><use href="/assets/icons.svg#si-flutter"/></svg><svg class="si" role="img" aria-label="Flask" style="--b:#000000" data-bd><title>Flask</title><use href="/assets/icons.svg#si-flask"/></svg><svg class="si" role="img" aria-label="Python" style="--b:#3776AB"><title>Python</title><use href="/assets/icons.svg#si-python"/></svg></div></div>
+            <div class="pcard__body">
+              <div class="pcard__head"><h3>Plant Disease Detection App</h3><span class="mono muted small">2024</span></div>
+              <p class="pcard__desc">A volunteer team app for PJTAU: farmers photograph crops to identify diseases and pests, and admins review results on a dashboard.</p>
+              <ul class="chips"><li>Flutter</li><li>Flask</li><li>Python</li></ul>
+            </div>
+          </article>
+
+          <article class="card pcard">
+            <div class="pcard__cover"><svg class="ic pcard__icon" aria-hidden="true"><use href="/assets/icons.svg#i-route"/></svg><div class="logos"><svg class="si" role="img" aria-label="Arduino" style="--b:#00878F"><title>Arduino</title><use href="/assets/icons.svg#si-arduino"/></svg><svg class="si" role="img" aria-label="C++" style="--b:#00599C"><title>C++</title><use href="/assets/icons.svg#si-cplusplus"/></svg><svg class="si" role="img" aria-label="Python" style="--b:#3776AB"><title>Python</title><use href="/assets/icons.svg#si-python"/></svg></div></div>
+            <div class="pcard__body">
+              <div class="pcard__head"><h3>Line Following Robot</h3></div>
+              <p class="pcard__desc">An Arduino robot with 3 IR sensors that remembers its last turn to cross gaps and spins in place on sharp corners.</p>
+              <ul class="chips"><li>Arduino (C++)</li><li>Python</li></ul>
+            </div>
+            <!-- TODO: replace with the repo URL -->
+            <a class="pcard__foot" href="https://github.com/Krupa1316" target="_blank" rel="noopener"><svg class="ui-icon" aria-hidden="true"><use href="/assets/icons.svg#i-github"/></svg>View on GitHub</a>
+          </article>
+
+          <article class="card pcard">
+            <div class="pcard__cover"><svg class="ic pcard__icon" aria-hidden="true"><use href="/assets/icons.svg#i-server"/></svg><div class="logos"><svg class="si" role="img" aria-label="Docker" style="--b:#2496ED"><title>Docker</title><use href="/assets/icons.svg#si-docker"/></svg><svg class="si" role="img" aria-label="Nginx" style="--b:#009639"><title>Nginx</title><use href="/assets/icons.svg#si-nginx"/></svg><svg class="si" role="img" aria-label="Linux" style="--b:#FCC624"><title>Linux</title><use href="/assets/icons.svg#si-linux"/></svg><svg class="si" role="img" aria-label="PostgreSQL" style="--b:#4169E1"><title>PostgreSQL</title><use href="/assets/icons.svg#si-postgresql"/></svg></div></div>
+            <div class="pcard__body">
+              <div class="pcard__head"><h3>Personal Cloud Homelab</h3><span class="mono muted small">2025–now</span></div>
+              <p class="pcard__desc">4 self-hosted services on a Linux server behind an Nginx reverse proxy, managed entirely over SSH.</p>
+              <ul class="chips"><li>Docker</li><li>Nginx</li><li>PostgreSQL</li><li>Portainer</li></ul>
+            </div>
+          </article>
+        </div>
+
+        <!-- In the lab -->
+        <p class="eyebrow lab__label">// in the lab — design-stage work</p>
+        <div class="lab">
+          <article class="lab__card">
+            <div class="lab__top"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-brain"/></svg><span class="badge badge--amber">In design</span></div>
+            <h3>JARVIS, a personal AI OS</h3>
+            <p>A voice-first assistant built on LangGraph and multiple LLM providers, with a long-term memory stack and phone calling.</p>
+          </article>
+          <article class="lab__card">
+            <div class="lab__top"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-factory"/></svg><span class="badge badge--amber">In design</span></div>
+            <h3>Agent Fabrication Cell</h3>
+            <p>A robotic cell where an AI agent builds a requested item from nearby materials and tests that it works.</p>
+          </article>
+          <article class="lab__card">
+            <div class="lab__top"><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-scan"/></svg><span class="badge badge--amber">In design</span></div>
+            <h3>Knee and spine MRI classifier</h3>
+            <p>A Kaggle competition entry for multi-label MRI classification from DICOM scans.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <!-- Logo pills: <li style="--b:#BRANDHEX"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-SLUG"/></svg>Name</li>. The slug must exist in assets/icons.svg; plain <li>Name</li> is text-only. -->
+    <section class="section reveal" id="skills">
+      <div class="wrap">
+        <p class="eyebrow">// skills</p>
+        <h2 class="section__title">Tools I use</h2>
+
+        <div class="skills">
+          <div class="card skill-group skill-group--top">
+            <h3>AI and LLMs</h3>
+            <ul class="pills">
+              <li style="--b:#1C3C3C" data-bd><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-langchain"/></svg>LangChain</li><li style="--b:#1C3C3C" data-bd><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-langchain"/></svg>LangGraph</li><li>AutoGen</li><li style="--b:#000000" data-bd><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-ollama"/></svg>Ollama</li><li>Groq</li><li>RAG</li><li>Prompt engineering</li><li>Tool calling</li><li>MCP</li><li>Embeddings</li>
+            </ul>
+          </div>
+          <div class="card skill-group">
+            <h3>Machine learning and vision</h3>
+            <ul class="pills">
+              <li style="--b:#EE4C2C"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-pytorch"/></svg>PyTorch</li><li>YOLOv8</li><li style="--b:#FF6F00"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-tensorflow"/></svg>TensorFlow Lite</li><li style="--b:#5C3EE8"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-opencv"/></svg>OpenCV</li><li style="--b:#F7931E"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-scikitlearn"/></svg>scikit-learn</li><li>Federated learning</li>
+            </ul>
+          </div>
+          <div class="card skill-group">
+            <h3>Backend</h3>
+            <ul class="pills">
+              <li style="--b:#3776AB"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-python"/></svg>Python</li><li style="--b:#009688"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-fastapi"/></svg>FastAPI</li><li style="--b:#000000" data-bd><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-flask"/></svg>Flask</li><li style="--b:#E0234E"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-nestjs"/></svg>NestJS</li><li style="--b:#5FA04E"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-nodedotjs"/></svg>Node.js</li><li>REST APIs</li><li style="--b:#E10098"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-graphql"/></svg>GraphQL</li><li>WebSockets</li>
+            </ul>
+          </div>
+          <div class="card skill-group">
+            <h3>Data</h3>
+            <ul class="pills">
+              <li style="--b:#4169E1"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-postgresql"/></svg>PostgreSQL</li><li style="--b:#3FCF8E"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-supabase"/></svg>Supabase</li><li style="--b:#FF4438"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-redis"/></svg>Redis</li><li style="--b:#47A248"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-mongodb"/></svg>MongoDB</li><li style="--b:#4479A1"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-mysql"/></svg>MySQL</li><li>Qdrant</li><li>ChromaDB</li><li>Memgraph</li><li style="--b:#FDB515"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-timescale"/></svg>TimescaleDB</li><li>PostGIS</li>
+            </ul>
+          </div>
+          <div class="card skill-group">
+            <h3>Frontend and mobile</h3>
+            <ul class="pills">
+              <li style="--b:#61DAFB"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-react"/></svg>React</li><li style="--b:#000000" data-bd><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-nextdotjs"/></svg>Next.js</li><li style="--b:#3178C6"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-typescript"/></svg>TypeScript</li><li style="--b:#F7DF1E" data-bl><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-javascript"/></svg>JavaScript</li><li style="--b:#02569B"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-flutter"/></svg>Flutter</li><li style="--b:#FF4B4B"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-streamlit"/></svg>Streamlit</li>
+            </ul>
+          </div>
+          <div class="card skill-group">
+            <h3>Cloud and DevOps</h3>
+            <ul class="pills">
+              <li style="--b:#232F3E" data-bd><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-amazonwebservices"/></svg>AWS</li><li>Azure</li><li style="--b:#2496ED"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-docker"/></svg>Docker</li><li style="--b:#326CE5"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-kubernetes"/></svg>Kubernetes</li><li style="--b:#2088FF"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-githubactions"/></svg>GitHub Actions</li><li style="--b:#009639"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-nginx"/></svg>Nginx</li><li style="--b:#FCC624"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-linux"/></svg>Linux</li><li style="--b:#F05032"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-git"/></svg>Git</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION ============ -->
+    <section class="section reveal" id="education">
+      <div class="wrap">
+        <p class="eyebrow">// education</p>
+        <h2 class="section__title">Education and certifications</h2>
+
+        <div class="edu">
+          <div class="card edu__card">
+            <h3><svg class="ic" aria-hidden="true"><use href="/assets/icons.svg#i-graduation-cap"/></svg> B.Tech, Computer Science and Engineering</h3>
+            <p class="muted">Data Science specialization</p>
+            <p class="mono small muted">KLEF Deemed University, Hyderabad · 2022 – 2026</p>
+            <p class="cgpa"><strong>9.1</strong><span> / 10 CGPA</span></p>
+            <ul class="chips">
+              <li>Machine Learning</li><li>Deep Learning</li><li>Computer Vision</li><li>Distributed Systems</li><li>Cloud Computing</li><li>Database Management</li><li>Data Structures and Algorithms</li><li>Operating Systems</li>
+            </ul>
+          </div>
+
+          <div>
+            <!-- To add a verify link inside a tile: <a class="cert__verify" href="https://www.credly.com/..." target="_blank" rel="noopener">Verify ↗</a> -->
+            <ul class="certs">
+              <li class="cert" style="--b:#232F3E" data-bd><span class="cert__logo"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-amazonwebservices"/></svg></span><div><strong>Solutions Architect – Associate</strong><span>AWS · SAA-C03</span></div></li>
+              <li class="cert"><span class="cert__logo cert__logo--text">MS</span><div><strong>Azure Fundamentals</strong><span>Microsoft · AZ-900</span></div></li>
+              <li class="cert" style="--b:#00A1E0"><span class="cert__logo"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-salesforce"/></svg></span><div><strong>Agentforce Specialist</strong><span>Salesforce · AI-201</span></div></li>
+              <li class="cert" style="--b:#EE0000"><span class="cert__logo"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-redhat"/></svg></span><div><strong>Enterprise Java (Red Hat Certified)</strong><span>Red Hat · EX183</span></div></li>
+              <li class="cert" style="--b:#181717" data-bd><span class="cert__logo"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-github"/></svg></span><div><strong>GitHub Foundations</strong><span>GitHub</span></div></li>
+              <li class="cert" style="--b:#47A248"><span class="cert__logo"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-mongodb"/></svg></span><div><strong>Associate Developer</strong><span>MongoDB</span></div></li>
+              <li class="cert" style="--b:#232F3E" data-bd><span class="cert__logo"><svg class="si" aria-hidden="true"><use href="/assets/icons.svg#si-amazonwebservices"/></svg></span><div><strong>AWS Academy</strong><span>AWS</span></div></li>
+              <li class="cert"><span class="cert__logo cert__logo--text">JPM</span><div><strong>Software Engineering Job Simulation</strong><span>J.P. Morgan · Forage</span></div></li>
+            </ul>
+            <p class="mono small muted langs">Languages: English (professional) · Telugu (native) · German (beginner)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section reveal" id="contact">
+      <div class="wrap">
+        <p class="eyebrow">// contact</p>
+        <h2 class="section__title">Let's build something</h2>
+
+        <div class="contact">
+          <p class="contact__lead">I'm open to full-time AI Engineer, AI Backend and Full Stack AI roles. The fastest way to reach me is email.</p>
+          <div class="contact__email">
+            <a class="mono" href="mailto:kollikrupajohnson@gmail.com">kollikrupajohnson@gmail.com</a>
+            <button class="btn btn--sm btn--outline" type="button" data-copy="kollikrupajohnson@gmail.com" data-copy-label>
+              <svg class="ui-icon" aria-hidden="true"><use href="/assets/icons.svg#i-copy"/></svg><span class="copy-text">Copy</span>
+            </button>
+          </div>
+          <div class="contact__links">
+            <a class="btn btn--outline" href="https://www.linkedin.com/in/krupa-johnson-kolli-90799428b" target="_blank" rel="noopener"><svg class="ui-icon" aria-hidden="true"><use href="/assets/icons.svg#i-linkedin"/></svg>LinkedIn</a>
+            <a class="btn btn--outline" href="https://github.com/Krupa1316" target="_blank" rel="noopener"><svg class="ui-icon" aria-hidden="true"><use href="/assets/icons.svg#i-github"/></svg>GitHub</a>
+            <a class="btn btn--outline" href="/resume.html" target="_blank" rel="noopener" data-resume><svg class="ui-icon" aria-hidden="true"><use href="/assets/icons.svg#i-file-text"/></svg>Resume</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner mono">
+      <span>© 2026 Kolli Krupa Johnson</span>
+      <span>Built with HTML, CSS and JS · <a href="#home">Back to top ↑</a></span>
+    </div>
+  </footer>
+
+  <!-- Resume preview: nothing here loads until a visitor opens it (the iframe src is set on first open) -->
+  <dialog class="resume" id="resume-dialog" aria-labelledby="resume-title">
+    <div class="resume__bar">
+      <h2 class="resume__title" id="resume-title">Resume</h2>
+      <div class="resume__actions">
+        <a class="btn btn--sm btn--primary" href="/resume.pdf" download="Resume_KolliKrupaJohnson_FullStackAIEngineer.pdf"><svg class="ui-icon" aria-hidden="true"><use href="/assets/icons.svg#i-download"/></svg><span>Download PDF</span></a>
+        <button class="btn btn--sm btn--outline" type="button" id="resume-print"><svg class="ui-icon" aria-hidden="true"><use href="/assets/icons.svg#i-printer"/></svg><span>Print</span></button>
+        <a class="btn btn--sm btn--outline" href="/resume.html" target="_blank" rel="noopener"><svg class="ui-icon" aria-hidden="true"><use href="/assets/icons.svg#i-external-link"/></svg><span>Open</span></a>
+        <button class="icon-btn" type="button" id="resume-close" aria-label="Close resume preview"><svg class="ui-icon" aria-hidden="true"><use href="/assets/icons.svg#i-x"/></svg></button>
+      </div>
+    </div>
+    <div class="resume__body">
+      <p class="resume__loading mono">loading resume…</p>
+      <iframe class="resume__frame" title="Resume preview"></iframe>
+    </div>
+  </dialog>
+  <script src="/main.js" defer></script>
+</body>
+</html>

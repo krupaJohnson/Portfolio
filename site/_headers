@@ -1,0 +1,19 @@
+# Cloudflare Pages response headers - https://developers.cloudflare.com/pages/configuration/headers/
+# Cloudflare also sends Early Hints for the <link rel="preload"> fonts automatically.
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/icons.svg
+  Cache-Control: public, max-age=604800
+
+/*.css
+  Cache-Control: public, max-age=86400
+
+/*.js
+  Cache-Control: public, max-age=86400

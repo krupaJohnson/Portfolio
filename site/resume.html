@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resume · Kolli Krupa Johnson</title>
+  <meta name="description" content="Resume of Kolli Krupa Johnson, Full Stack AI Engineer: Generative AI, RAG and AI agents.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <style>
+    :root { --ink: #111; --muted: #666; --blue: #2B5797; }
+    * { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body { margin: 0; background: #E9ECF0; color: var(--ink); font: 10pt/1.22 Arial, Helvetica, sans-serif; }
+    a { color: inherit; }
+
+    /* Toolbar: only when opened directly (hidden inside the portfolio preview and in print) */
+    .bar { display: none; position: sticky; top: 0; z-index: 2; background: #fff; border-bottom: 1px solid #DDE1E6; padding: 10px 16px; }
+    .standalone .bar { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .bar a, .bar button {
+      font: 500 14px/1 system-ui, sans-serif; color: #12161C; text-decoration: none;
+      border: 1px solid #DDE1E6; background: #fff; border-radius: 8px; padding: 9px 14px; cursor: pointer;
+    }
+    .bar .primary { background: #0F8A80; border-color: #0F8A80; color: #fff; }
+
+    .page {
+      width: 8.5in; min-height: 11in; margin: 24px auto; padding: 0.45in 0.5in;
+      background: #fff; box-shadow: 0 2px 16px rgba(0, 0, 0, .12);
+    }
+    .embedded .page { margin: 16px auto; }
+
+    header { text-align: center; margin-bottom: 6px; }
+    h1 { margin: 0; font-size: 19pt; letter-spacing: .02em; text-transform: uppercase; }
+    .tagline { color: #555; font-size: 10.5pt; margin-top: 3px; }
+    .contact { color: var(--muted); font-size: 9pt; margin-top: 2px; }
+    .contact a { color: var(--blue); }
+    .contact .sep { margin: 0 5px; }
+    .nw { white-space: nowrap; }
+
+    h2 {
+      margin: 7px 0 3px; padding-bottom: 1px;
+      color: var(--blue); font-size: 11pt; text-transform: uppercase; letter-spacing: .01em;
+      border-bottom: 1.5px solid var(--blue);
+    }
+    p { margin: 0; }
+    ul { margin: 1px 0 0; padding-left: 24px; }
+    li { margin-bottom: 0; }
+    li::marker { font-size: 9pt; }
+
+    .skills { display: grid; grid-template-columns: max-content 1fr; gap: 0 8px; margin: 0; }
+    .skills dt { font-weight: 700; }
+    .skills dd { margin: 0; }
+
+    .entry { margin-top: 5px; }
+    .entry__head, .tools { break-after: avoid; }
+    li { break-inside: avoid; }
+    .entry__head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+    .entry__head strong { font-size: 10.5pt; }
+    .entry__head .org { color: #555; font-weight: 400; white-space: nowrap; }
+    .date { color: var(--muted); font-size: 9pt; white-space: nowrap; }
+    .tools { font-size: 9pt; color: #444; }
+    .tools b { color: var(--ink); font-size: 10pt; }
+
+    @media (max-width: 860px) {
+      .page { width: auto; min-height: 0; margin: 0; padding: 20px 16px; box-shadow: none; }
+      body { background: #fff; font-size: 10.5pt; }
+      .entry__head { flex-direction: column; gap: 0; }
+      .skills { grid-template-columns: 1fr; }
+      .skills dd { margin-bottom: 4px; }
+    }
+
+    @page { size: letter; margin: 0.4in 0.45in; }
+    @media print {
+      body { background: #fff; font-size: 9.8pt; }
+      .bar { display: none !important; }
+      .page { width: auto; min-height: 0; margin: 0; padding: 0; box-shadow: none; }
+      .entry__head { flex-direction: row; }
+      .skills { grid-template-columns: max-content 1fr; }
+      a { text-decoration: none; }
+      h2 { break-after: avoid; }
+    }
+  </style>
+  <script>
+    document.documentElement.className = window.self === window.top ? 'standalone' : 'embedded';
+  </script>
+</head>
+<body>
+  <nav class="bar" aria-label="Resume actions">
+    <a href="/">← Portfolio</a>
+    <a class="primary" href="/resume.pdf" download="Resume_KolliKrupaJohnson_FullStackAIEngineer.pdf">Download PDF</a>
+    <button type="button" onclick="window.print()">Print / Save as PDF</button>
+  </nav>
+
+  <main class="page">
+    <header>
+      <h1>Kolli Krupa Johnson Chowdary</h1>
+      <p class="tagline">Full Stack AI Engineer · Generative AI · RAG · AI Agents</p>
+      <p class="contact">
+        <span class="nw">Hyderabad, India</span><span class="sep">|</span><a href="mailto:kollikrupajohnson@gmail.com">kollikrupajohnson@gmail.com</a><span class="sep">|</span><a href="https://github.com/Krupa1316" target="_blank" rel="noopener">GitHub</a><span class="sep">|</span><a href="https://www.linkedin.com/in/krupa-johnson-kolli-90799428b" target="_blank" rel="noopener">LinkedIn</a>
+      </p>
+    </header>
+
+    <h2>Summary</h2>
+    <p>Full stack AI engineer (B.Tech CSE, Data Science specialization, CGPA 9.1 out of 10) who builds GenAI applications end to end, from React and Flutter frontends to FastAPI backends, RAG pipelines, and AI agents. Shipped 6 production systems as a software engineering intern, including a platform delivered to a sister company and an LLM observability stack, and lead the database design for BeverageOS. Built Zonny, an AutoGen multi agent platform with a 17 tool registry, ChromaDB RAG memory, and an MCP server, plus a one-command deploy CLI published on PyPI. AWS SAA-C03 and Azure AZ-900 certified.</p>
+
+    <h2>Skills</h2>
+    <dl class="skills">
+      <dt>Languages</dt><dd>Python, TypeScript, JavaScript, SQL, Bash, Dart, C++, HTML5, CSS3</dd>
+      <dt>GenAI and Conversational AI</dt><dd>LLMs, prompt engineering, RAG pipelines, embeddings, AI agents, tool calling, MCP</dd>
+      <dt>AI Frameworks</dt><dd>LangChain, LangGraph, AutoGen, Ollama, Groq API</dd>
+      <dt>ML and Vision</dt><dd>PyTorch, YOLOv8, TensorFlow Lite, OpenCV, scikit-learn, federated learning</dd>
+      <dt>Frontend and Mobile</dt><dd>React.js, Next.js, Flutter, Streamlit, HTML5, CSS3</dd>
+      <dt>Backend and APIs</dt><dd>FastAPI, Flask, NestJS, Node.js, REST APIs, GraphQL, WebSockets, RBAC</dd>
+      <dt>Vector DBs and Data</dt><dd>Qdrant, ChromaDB, PostgreSQL, Supabase, MySQL, MongoDB, Redis, TimescaleDB, Memgraph, PostGIS</dd>
+      <dt>Cloud and DevOps</dt><dd>AWS, Azure, Docker, Kubernetes, GitHub Actions CI/CD, Nginx, Linux, Git</dd>
+    </dl>
+
+    <h2>Work Experience</h2>
+    <div class="entry">
+      <div class="entry__head">
+        <strong>Software Engineer / GenAI Developer Intern <span class="org">· Systems Group</span></strong>
+        <span class="date">Oct 2025 – Present | Hyderabad, India</span>
+      </div>
+      <ul>
+        <li><b>BeverageOS (Tech Lead):</b> Designed the PostgreSQL schema for a beverage POS and kitchen display platform, covering modifier groups, ingredient ownership, and kitchen-display JSON; modeled inventory and recipes with 245 real supplier items and led the move to a NestJS modular monolith.</li>
+        <li><b>WorkStream Platform:</b> Delivered 1 internal platform to a sister company that replaced 3 disconnected tools, covering task management, team hierarchy, document versioning, and messaging.</li>
+        <li><b>LLM Observability Stack:</b> Improved LLM inference reliability by instrumenting 3 production metrics with structured logging and live health dashboards for monitoring and troubleshooting.</li>
+        <li><b>Pixel Streaming Platform:</b> Cut project onboarding from hours to minutes by engineering a 4 stage provisioning pipeline with 3 tier RBAC and session queue management.</li>
+        <li><b>LMS Teacher Dashboard:</b> Removed administrative bottlenecks across 3 educator workflows by centralizing class management, assignment tracking, and quiz assessment.</li>
+        <li><b>CAD Comparison Tool:</b> Eliminated manual drawing review across 3 change types by building a 4 stage pipeline covering parsing, diffing, visualization, and PDF reporting.</li>
+        <li><b>Distro Streaming Ecosystem:</b> Enabled secure kiosk streaming across a 2 component architecture using a Flutter Android client and virtualized server backend.</li>
+      </ul>
+    </div>
+
+    <h2>Projects</h2>
+    <div class="entry">
+      <div class="entry__head"><strong>Zonny: Multi Agent AI Platform and Developer CLI</strong><span class="date">2024 – 2025</span></div>
+      <p class="tools"><b>Tools:</b> Python, AutoGen, LangChain, Ollama, ChromaDB, Redis, MCP, tree-sitter, FastAPI, Docker, Git, PyPI</p>
+      <ul>
+        <li><b>Multi agent orchestration:</b> Coordinated a 6 agent AutoGen pipeline over a 17 tool registry, with 3 tier permissions controlling which tools each agent can call, and an auto-repair loop with up to 3 fix attempts.</li>
+        <li><b>RAG based agent memory:</b> Removed context loss between agent runs by building a retrieval layer over ChromaDB embeddings with Redis session caching.</li>
+        <li><b>Testing and integration:</b> Validated platform health with a 35 check diagnostic suite and exposed agent tools to external clients through an MCP server.</li>
+        <li><b>ZonnyHelper CLI:</b> Reduced deployment to a single command across 12 targets by publishing a PyPI CLI with tree-sitter code parsing, Git automation, and fallback across 4 LLM providers.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="entry__head"><strong>LLM Complaint Management Agent</strong><span class="date">2026</span></div>
+      <p class="tools"><b>Tools:</b> Python, LangGraph, Groq API</p>
+      <ul>
+        <li><b>Conversational agent workflow:</b> Built a complaint management system as a LangGraph state graph backed by Groq hosted LLMs for an AI engineering take home assignment.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="entry__head"><strong>Geospatial Intelligence Foundry: Self Extending Ontology Engine</strong><span class="date">2024 – 2025</span></div>
+      <p class="tools"><b>Tools:</b> Python, Memgraph, TimescaleDB, PostGIS, Qdrant, Redis, MinIO, Docker</p>
+      <ul>
+        <li><b>LLM assisted classification:</b> Attained full audit traceability across 4 decision types via a 3 tier pipeline of deterministic rules, fine tuned ML, and async LLM escalation.</li>
+        <li><b>Multi store data architecture:</b> Reduced query latency on high throughput workloads by designing a 5 store layer, including Qdrant vector search, each store selected for its access pattern.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="entry__head"><strong>GenAI Data Visualization Tool</strong></div>
+      <p class="tools"><b>Tools:</b> Python, Streamlit, Plotly, spaCy, Transformers</p>
+      <ul>
+        <li><b>Natural language analytics:</b> Turned plain-English questions about an uploaded CSV into interactive charts, with data profiling and quality checks built in.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="entry__head"><strong>Agricultural Plant Disease Detection System (Volunteer Team Project for PJTAU)</strong><span class="date">2024</span></div>
+      <p class="tools"><b>Tools:</b> Python, Flask, Flutter</p>
+      <ul>
+        <li><b>End to end diagnosis app:</b> Enabled crop disease and pest identification for farmers through a Flutter photo capture app paired with a Flask admin review dashboard.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="entry__head"><strong>FedFusion: Federated Learning with Differential Privacy</strong><span class="date">2024</span></div>
+      <p class="tools"><b>Tools:</b> Python, PyTorch, YOLOv8, FedAvg</p>
+      <ul>
+        <li><b>Privacy preserving model training:</b> Sustained convergence across non IID distributions by fine tuning YOLOv8 on distributed nodes using FedAvg with gradient clipping and noise injection.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="entry__head"><strong>Autonomous Vision System</strong><span class="date">2024</span></div>
+      <p class="tools"><b>Tools:</b> TensorFlow Lite, MobileNet SSD, OpenCV, Raspberry Pi</p>
+      <ul>
+        <li><b>On-device detection:</b> Ran real-time object detection on a Raspberry Pi 4 with no cloud, driving motors directly from what the camera sees.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="entry__head"><strong>Personal Cloud Homelab</strong><span class="date">2025 – Present</span></div>
+      <p class="tools"><b>Tools:</b> Linux, Docker, Nginx, PostgreSQL, MinIO, Portainer, SSH</p>
+      <ul>
+        <li><b>Self operated production infrastructure:</b> Preserved continuous uptime across 4 containerized services by configuring Nginx reverse proxy on a fully SSH managed Linux server.</li>
+      </ul>
+    </div>
+    <div class="entry">
+      <div class="entry__head"><strong>Line Following Robot</strong></div>
+      <p class="tools"><b>Tools:</b> Arduino (C++), Python</p>
+      <ul>
+        <li><b>Embedded control:</b> Built an Arduino robot with 3 IR sensors that remembers its last turn to cross gaps and spins in place on sharp corners.</li>
+      </ul>
+    </div>
+
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="entry__head">
+        <strong>B.Tech, Computer Science and Engineering with Data Science Specialization <span class="org">· KLEF Deemed University</span></strong>
+        <span class="date">2022 – 2026 | Hyderabad, India</span>
+      </div>
+      <ul>
+        <li>CGPA: 9.1 out of 10.0 · Graduated 2026</li>
+        <li>Coursework: Machine Learning, Deep Learning, Computer Vision, Cloud Computing, Distributed Systems, Data Structures and Algorithms, Database Management, Operating Systems.</li>
+      </ul>
+    </div>
+
+    <h2>Certifications</h2>
+    <ul>
+      <li>AWS Certified Solutions Architect, Associate SAA-C03 · Microsoft Azure Fundamentals AZ-900 · AWS Academy</li>
+      <li>Salesforce Agentforce AI Specialist AI-201 · GitHub Foundations · Red Hat Certified Enterprise Java EX183</li>
+      <li>MongoDB Associate Developer · J.P. Morgan SWE Job Simulation · LinkedIn Communications Foundation</li>
+    </ul>
+
+    <h2>Languages</h2>
+    <ul>
+      <li>English: Professional working proficiency · Telugu: Native proficiency · German: Beginner</li>
+    </ul>
+  </main>
+</body>
+</html>

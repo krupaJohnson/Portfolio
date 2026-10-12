@@ -1,0 +1,11 @@
+# Local tooling (not part of the website)
+.claude/
+.chrome-tmp/
+node_modules/
+
+# OS / editor clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+*.log
