@@ -24,9 +24,7 @@ site/
 1. **Fix the repo links.** Search `index.html` for `TODO`. Four links point at your GitHub profile
    because the exact repo URLs weren't known: Zonny001, ZonnyHelper, GenAI Data Visualization Tool
    and Line Following Robot. Replace them with the real repo URLs.
-2. **Set the social preview URLs.** In `index.html`, change `og:url` and `og:image` to absolute URLs
-   once your domain is live (e.g. `https://yourdomain.com/og-image.png`). LinkedIn needs absolute URLs.
-3. Optional: replace the `KKJ` box in About with a headshot (instructions in a comment there),
+2. Optional: replace the `KKJ` box in About with a headshot (instructions in a comment there),
    and add `Verify ↗` links to certificates (example in a comment above the list).
 
 ## Updating the resume
