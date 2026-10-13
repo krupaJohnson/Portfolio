@@ -1,8 +1,10 @@
 # Cloudflare Pages response headers - https://developers.cloudflare.com/pages/configuration/headers/
 # Cloudflare also sends Early Hints for the <link rel="preload"> fonts automatically.
+# X-Frame-Options is SAMEORIGIN (not DENY) so the site can show its own resume in the preview window.
 /*
   X-Content-Type-Options: nosniff
-  X-Frame-Options: DENY
+  X-Frame-Options: SAMEORIGIN
+  Content-Security-Policy: frame-ancestors 'self'
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
 

@@ -228,7 +228,7 @@
       loading.hidden = true;
     });
     var openResume = function () {
-      if (!frame.getAttribute('src')) frame.setAttribute('src', '/resume.html');
+      if (!frame.getAttribute('src')) frame.setAttribute('src', '/resume');
       closeMenu();
       root.classList.add('modal-open');
       dialog.showModal();
@@ -251,7 +251,7 @@
     dialog.addEventListener('click', function (e) { if (e.target === dialog) closeResume(); });
     document.getElementById('resume-print').addEventListener('click', function () {
       if (frame.classList.contains('ready')) frame.contentWindow.print();
-      else window.open('/resume.html', '_blank', 'noopener');
+      else window.open('/resume', '_blank', 'noopener');
     });
   }
 })();
