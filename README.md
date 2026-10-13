@@ -24,8 +24,7 @@ site/
 1. **Fix the repo links.** Search `index.html` for `TODO`. Four links point at your GitHub profile
    because the exact repo URLs weren't known: Zonny001, ZonnyHelper, GenAI Data Visualization Tool
    and Line Following Robot. Replace them with the real repo URLs.
-2. Optional: replace the `KKJ` box in About with a headshot (instructions in a comment there),
-   and add `Verify ↗` links to certificates (example in a comment above the list).
+2. Optional: add `Verify ↗` links to certificates (example in a comment above the list).
 
 ## Updating the resume
 

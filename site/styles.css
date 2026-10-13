@@ -208,7 +208,9 @@ svg { display: block; }
 .about__photo {
   width: 280px; height: 280px; border-radius: var(--radius);
   border: 1px solid var(--accent); object-fit: cover;
+  display: block; background: var(--surface);
 }
+.about picture { display: block; }
 .about__photo--mono {
   display: grid; place-items: center;
   background: var(--surface); color: var(--accent);
