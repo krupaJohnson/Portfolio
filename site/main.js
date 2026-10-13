@@ -69,10 +69,71 @@
     reveals.forEach(function (el) { ro.observe(el); });
   }
 
+  /* ---------- Staggered item reveal + timeline draw ---------- */
+  var hasIO = 'IntersectionObserver' in window;
+  if (!reduceMotion && hasIO) {
+    var items = document.querySelectorAll('.facts > div, .role, .timeline, .tl-item, .flagship, .pcard, .lab__card, .skill-group, .edu__card, .cert, .contact');
+    var io = new IntersectionObserver(function (entries) {
+      var n = 0;
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        en.target.style.setProperty('--d', Math.min(n++, 8) * 70 + 'ms');
+        en.target.classList.add('rv-in');
+        io.unobserve(en.target);
+      });
+    }, { rootMargin: '0px 0px -6% 0px' });
+    items.forEach(function (el) {
+      el.classList.add(el.classList.contains('timeline') ? 'rv-line' : 'rv');
+      io.observe(el);
+    });
+  }
+
+  /* ---------- Card spotlight follows the cursor (mouse/trackpad only) ---------- */
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.addEventListener('pointermove', function (e) {
+      var card = e.target.closest && e.target.closest('.card');
+      if (!card) return;
+      var r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    }, { passive: true });
+  }
+
+  /* ---------- CGPA counts up once ---------- */
+  var cgpa = document.querySelector('.cgpa strong');
+  if (cgpa && !reduceMotion && hasIO) {
+    var target = parseFloat(cgpa.textContent);
+    var cio = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      cio.disconnect();
+      var t0 = performance.now();
+      var step = function (t) {
+        var p = Math.min((t - t0) / 1000, 1);
+        cgpa.textContent = (target * (1 - Math.pow(1 - p, 3))).toFixed(1);
+        if (p < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
+    cio.observe(cgpa);
+  }
+
+  /* ---------- Diagram packets only run while visible ---------- */
+  var diagram = document.querySelector('.diagram');
+  if (diagram && diagram.pauseAnimations) {
+    diagram.pauseAnimations();
+    if (!reduceMotion && hasIO) {
+      new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) diagram.unpauseAnimations();
+        else diagram.pauseAnimations();
+      }).observe(diagram);
+    }
+  }
+
   /* ---------- Hero terminal typing (~1.5s, then still) ---------- */
   var termLines = document.querySelectorAll('#hero-term .tl');
   if (reduceMotion) {
     termLines.forEach(function (l) { l.classList.add('on'); });
+    termLines[termLines.length - 1].classList.add('typing');
   } else {
     var steps = [];
     termLines.forEach(function (line) {
@@ -88,8 +149,8 @@
     });
     var i = 0;
     var next = function () {
+      if (i >= steps.length) return; // the last line (an empty prompt) keeps its blinking cursor
       if (i > 0) steps[i - 1].line.classList.remove('typing');
-      if (i >= steps.length) return;
       var s = steps[i++];
       s.line.classList.add('on');
       if (!s.node) { setTimeout(next, 110); return; }

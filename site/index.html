@@ -40,6 +40,7 @@
 </head>
 <body>
   <a class="skip" href="#about">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
 
   <!-- ============ NAV ============ -->
   <header class="nav" id="top">
@@ -95,7 +96,8 @@
 <span class="tl"><span class="p">$</span> zonny scan .</span>
 <span class="tl ok">✓ detected: python · fastapi · port 8000</span>
 <span class="tl"><span class="p">$</span> zonny deploy --target docker</span>
-<span class="tl ok">✓ deployed in 1 command</span></pre>
+<span class="tl ok">✓ deployed in 1 command</span>
+<span class="tl"><span class="p">$</span> </span></pre>
           </div>
         </div>
       </div>
@@ -212,6 +214,13 @@
               </defs>
               <rect x="100" y="92" width="482" height="216" rx="14" class="d-group"/>
               <text x="114" y="84" class="d-label">6 AutoGen agents</text>
+
+              <!-- Moving "data" packets: drawn under the nodes so they disappear into each box -->
+              <g class="d-pkts" aria-hidden="true">
+                <circle r="4" class="d-pkt"><animateMotion dur="3.6s" begin="0s" repeatCount="indefinite" path="M46 202H284C296 202 294 140 306 140H390C402 140 400 202 414 202H646"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.94;1" dur="3.6s" begin="0s" repeatCount="indefinite"/></circle>
+                <circle r="4" class="d-pkt"><animateMotion dur="3.6s" begin="1.8s" repeatCount="indefinite" path="M46 202H284C296 202 294 260 306 260H390C402 260 400 202 414 202H646"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.94;1" dur="3.6s" begin="1.8s" repeatCount="indefinite"/></circle>
+                <circle r="4" class="d-pkt d-pkt--r"><animateMotion dur="3.6s" begin="0s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;.55;.9;1" calcMode="linear" path="M442 224C442 350 348 350 348 284"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.55;.58;.86;.9;1" dur="3.6s" repeatCount="indefinite"/></circle>
+              </g>
 
               <g class="d-node"><rect x="8" y="178" width="76" height="48" rx="8"/><text x="46" y="207">Prompt</text></g>
               <g class="d-node"><rect x="116" y="180" width="64" height="44" rx="8"/><text x="148" y="207">CEO</text></g>
