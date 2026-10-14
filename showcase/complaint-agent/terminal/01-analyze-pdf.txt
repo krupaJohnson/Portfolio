@@ -1,0 +1,26 @@
+$ curl -s -F "file=@sample_data/quality_defect_complaint.pdf" localhost:8000/api/complaints/analyze | jq
+{
+  "complaint_source": "Written Letter",
+  "customer_name": "Rebecca Chen",
+  "customer_contact": "rebecca.chen@northgateregional.org, (614) 555-0173",
+  "product_name": "Cardiavex",
+  "product_strength": "20mg",
+  "batch_number": "CDX-7734",
+  "manufacturing_site": "Apex Pharmaceuticals Ltd. FDF Manufacturing Facility, Plot 42, Genome Valley Hyderabad, Telangana, India",
+  "manufacturing_date": "02/2026",
+  "expiry_date": "01/2028",
+  "quantity_affected": "840 tablets",
+  "facility_site_block": "FDF Manufacturing Block",
+  "impacted_npm": "blister foil",
+  "complaint_type": "Quality Defect",
+  "complaint_date": "June 18, 2026",
+  "description": "During routine visual inspection prior to dispensing, pharmacy technicians identified that approximately 6%...",
+  "summary": "Northgate Regional Hospital Pharmacy reported that Cardiavex 20 mg tablets, batch CDX-7734 (manufactured 02...",
+  "risk_level": "Major",
+  "priority": "High",
+  "risk_rationale": "The complaint describes a coating defect and increased friability affecting ~6% of tablets, which could com...",
+  "suggested_next_action": "Route to QA Investigation, quarantine remaining stock, request shipment of retained samples for dissolution...",
+  "capa_recommended": true
+}
+
+# answered in 4.4 s
