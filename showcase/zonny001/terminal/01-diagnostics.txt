@@ -1,0 +1,38 @@
+$ python zonny_status.py
+ PHASE 0 — INFRASTRUCTURE
+ [OK] Ollama running → HTTP 200
+ [OK] Model: mistral:latest → found
+ PHASE 5 — TOOL REGISTRY (single source of truth)
+ [OK] Registry loads → 17 tools defined
+ [OK] has_tool('filesystem.search')
+ [OK] has_tool('workspace.search') is False → phantom tool rejected
+ [OK] find_by_capability('search') → filesystem.search
+ [OK] All tools have 'capability' field
+ PHASE 1 — ROUTER (agent-intent output, NO tool names)
+ [OK] Router imports → agents: ['general', 'code', 'docs', 'memory']
+ [OK] Router returns 'agent' field → code
+ [OK] Router returns 'task' field (natural language) → List all files and directories in the c
+ [OK] Router does NOT return 'tool' key → clean
+ [OK] Router does NOT return 'args' key → clean
+ [OK] Routes 'recall' → memory agent → got: memory
+ [OK] Routes greeting → general agent → got: general
+ [OK] Routes file read → code agent → got: code
+ PHASE 3 — DISPATCHER SECURITY LAYER
+Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]Loading weights: 100%|█████�
+ [OK] Dispatcher security imports → mode=dev
+ [OK] Blocks path traversal (../../../etc/passwd) → blocked
+ [OK] Allows valid path (server.py) → server.py
+ [OK] Allows write to .py files
+ [OK] Blocks write to .exe files → [BLOCKED] Write blocked: '.exe' files are never allowed
+ [OK] Blocks write to .env files → [BLOCKED] Write blocked: '.env' is a sensitive dotfile
+ [OK] ZONNY_MODE=safe blocks all writes → [LOCKED] Write blocked: Zonny is running in safe mod
+ [OK] Dispatcher rejects unknown tool (workspace.search) → [FAIL] Unknown tool: workspace.sear
+
+ SUMMARY
+
+ [OK] Passed : 35/35
+ [FAIL] Failed : 0/35
+ Score : 100%
+
+ [DONE] All systems nominal. Zonny is ready.
+

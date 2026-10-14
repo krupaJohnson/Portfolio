@@ -1,0 +1,26 @@
+$ zonny tree export -f md -o tree.md && head -24 tree.md
+✓ Exported to tree.md
+# Codebase Entity Tree
+**Total Entities:** 831
+**Total Files:** 79
+
+## Languages
+- **unknown:** 11 files
+- **python:** 68 files
+
+## Entities
+
+### packages/zonny-ai/src/zonny_ai/cli_extension.py
+- **function** `attach` — Line 13
+- **function** `_merge_into_existing` — Line 34
+
+### packages/zonny-ai/src/zonny_ai/deploy/advisor.py
+- **function** `advisor_prompt` — Line 33
+- **function** `deterministic_target` — Line 109
+- **function** `has` — Line 122
+- **function** `_rec` — Line 177
+- **function** `_parse_memory_mb` — Line 187
+- **function** `run_advisor` — Line 199
+
+### packages/zonny-ai/src/zonny_ai/deploy/commands.py
+- **function** `refine` — Line 36

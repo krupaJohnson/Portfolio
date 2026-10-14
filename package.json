@@ -1,0 +1,13 @@
+{
+  "name": "kkj-portfolio-tools",
+  "private": true,
+  "description": "Build tools only. The website itself (site/) needs no build step.",
+  "type": "module",
+  "scripts": {
+    "build:projects": "node tools/build-projects.mjs"
+  },
+  "devDependencies": {
+    "marked": "12.0.2",
+    "sharp": "0.33.5"
+  }
+}

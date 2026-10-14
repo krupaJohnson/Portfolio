@@ -131,7 +131,9 @@
 
   /* ---------- Hero terminal typing (~1.5s, then still) ---------- */
   var termLines = document.querySelectorAll('#hero-term .tl');
-  if (reduceMotion) {
+  if (!termLines.length) {
+    // Not on the homepage (e.g. project pages)
+  } else if (reduceMotion) {
     termLines.forEach(function (l) { l.classList.add('on'); });
     termLines[termLines.length - 1].classList.add('typing');
   } else {

@@ -1,0 +1,15 @@
+$ python profile_demo.py   # DataProfiler on a 100-row sales dataset
+Dataset: 100 rows x 6 columns  (0.020 MB)
+
+column     semantic type  nulls  unique  recommended charts
+date       text            0.0%     100  
+sales      numeric         0.0%      99  histogram, box, violin
+category   categorical     0.0%       4  bar, pie, donut
+region     categorical     0.0%       4  bar, pie, donut
+quantity   numeric         0.0%      46  histogram, box, violin
+price      numeric        12.0%      87  histogram, box, violin
+
+Potential relationships:
+
+Data quality issues:
+  • none

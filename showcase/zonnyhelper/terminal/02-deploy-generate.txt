@@ -1,0 +1,7 @@
+$ zonny deploy generate --target docker
+
+✓ Generated 2 file(s) for docker:
+  .zonny/generated/Dockerfile
+  .zonny/generated/.dockerignore
+
+Next: zonny deploy run --target docker

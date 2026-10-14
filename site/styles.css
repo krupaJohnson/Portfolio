@@ -428,6 +428,89 @@ svg { display: block; }
 .footer a:hover { color: var(--accent); }
 
 
+
+/* ================= Project pages (site/projects/*.html) ================= */
+.cs-page main { padding-top: 32px; }
+.cs-back { display: inline-block; font: 400 14px/1 var(--f-mono); color: var(--muted); margin-bottom: 36px; }
+.cs-back:hover { color: var(--accent); }
+.cs-hero { max-width: 820px; margin-bottom: 40px; }
+.cs-title { font-size: 48px; font-weight: 700; letter-spacing: -.02em; margin-bottom: 14px; }
+.cs-tagline { font-size: 19px; color: var(--muted); margin-bottom: 24px; max-width: 64ch; }
+.cs-links { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+
+.cs-gallery { margin-bottom: 56px; }
+.cs-shots { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.cs-shot { margin: 0; }
+.cs-shot--lead { grid-column: 1 / -1; }
+.cs-shot__btn {
+  display: block; width: 100%; padding: 0; cursor: zoom-in;
+  border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--surface-2);
+  transition: border-color .2s, transform .2s;
+}
+.cs-shot__btn:hover { border-color: var(--accent); transform: translateY(-2px); }
+.cs-shot__btn img { display: block; width: 100%; height: auto; }
+.cs-shot figcaption, .cs-term figcaption { font-size: 14px; color: var(--muted); margin-top: 10px; line-height: 1.5; }
+
+.cs-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 56px; align-items: start; }
+.cs-section { margin-bottom: 48px; }
+.cs-section h2 { font-size: 24px; font-weight: 600; margin-bottom: 16px; }
+.cs-section p { margin-bottom: 14px; max-width: 72ch; }
+.cs-section ul, .cs-section ol { padding-left: 22px; margin-bottom: 14px; max-width: 72ch; }
+.cs-section ul { list-style: none; padding-left: 0; }
+.cs-section ul li { position: relative; padding-left: 20px; margin-bottom: 8px; }
+.cs-section ul li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); }
+.cs-section ol { list-style: decimal; }
+.cs-section ol li { margin-bottom: 10px; padding-left: 4px; }
+.cs-section ol li::marker { color: var(--accent); font-family: var(--f-mono); font-size: 14px; }
+.cs-section code { font: 400 .88em var(--f-mono); background: var(--surface-2); border: 1px solid var(--border); border-radius: 5px; padding: 1px 5px; }
+.cs-section pre { margin: 0 0 14px; padding: 16px 18px; overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
+.cs-section pre code { background: none; border: 0; padding: 0; font-size: 13.5px; line-height: 1.7; }
+.cs-section a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.cs-note { padding: 18px 20px; border: 1px dashed var(--border); border-radius: var(--radius); }
+.cs-note h2 { font-size: 15px; font-family: var(--f-mono); font-weight: 500; color: var(--muted); margin-bottom: 8px; }
+.cs-note p { font-size: 15px; color: var(--muted); margin-bottom: 0; }
+.cs-diagram { padding: 20px; border: 1px solid var(--border); border-radius: var(--radius);
+  background: radial-gradient(var(--dot) 1px, transparent 1px) 0 0 / 20px 20px, var(--bg); }
+.cs-diagram .diagram { max-width: none; }
+.cs-term { margin: 0 0 28px; }
+.cs-term .term__body {
+  min-height: 0; font-size: 12.5px; line-height: 1.6; max-height: 520px; overflow: auto;
+  /* System monospace fonts include box-drawing characters at the same width, so CLI tables line up */
+  font-family: ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, "Roboto Mono", monospace;
+}
+
+.cs-aside { position: sticky; top: calc(var(--nav-h) + 24px); }
+.cs-glance { padding: 22px; }
+.cs-glance:hover { transform: none; }
+.cs-glance h2 { font-size: 16px; font-weight: 600; margin-bottom: 14px; }
+.cs-glance h3 { font: 400 12px/1 var(--f-mono); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 18px 0 10px; }
+.cs-glance dl { margin: 0; display: grid; gap: 14px; }
+.cs-glance dt { font: 400 12px/1 var(--f-mono); text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-bottom: 6px; }
+.cs-glance dd { margin: 0; font-size: 15px; line-height: 1.45; }
+
+.cs-pager { display: flex; justify-content: space-between; gap: 16px; margin-top: 24px; padding-top: 28px; border-top: 1px solid var(--border); }
+.cs-pn { display: flex; flex-direction: column; gap: 6px; padding: 14px 18px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); max-width: 48%; transition: border-color .2s; }
+.cs-pn:hover { border-color: var(--accent); }
+.cs-pn--next { text-align: right; margin-left: auto; }
+.cs-pn strong { font-family: var(--f-head); font-weight: 600; }
+
+.lightbox { width: min(1400px, calc(100% - 32px)); max-width: none; max-height: none; padding: 0; border: 0; background: transparent; color: #fff; overflow: visible; }
+.lightbox[open] { display: flex; align-items: center; justify-content: center; }
+.lightbox::backdrop { background: rgba(8, 10, 14, .88); }
+.lightbox__fig { margin: 0; text-align: center; }
+.lightbox__fig img { display: block; max-width: 100%; max-height: calc(100vh - 120px); margin: 0 auto; border-radius: 10px; box-shadow: 0 20px 60px rgba(0, 0, 0, .5); }
+.lightbox__fig figcaption { margin-top: 14px; font-size: 14px; color: #C9D1D9; }
+.lightbox .icon-btn { color: #fff; background: rgba(255, 255, 255, .08); }
+.lightbox .icon-btn:hover { background: rgba(255, 255, 255, .16); border-color: transparent; color: #fff; }
+.lightbox__close { position: fixed; top: 16px; right: 16px; }
+.lightbox__nav { position: fixed; top: 50%; translate: 0 -50%; width: 44px; height: 44px; font-size: 28px; line-height: 1; }
+.lightbox__nav--prev { left: 16px; }
+.lightbox__nav--next { right: 16px; }
+
+/* Project card link on the homepage */
+.cs-link { display: inline-flex; align-items: center; gap: 6px; color: var(--accent); font-weight: 500; font-size: 14px; }
+.cs-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+
 /* ================= Resume preview ================= */
 .resume {
   width: min(960px, calc(100% - 32px)); height: min(92vh, 1240px);
@@ -508,6 +591,8 @@ html.modal-open { overflow: hidden; }
 
 /* ================= Responsive ================= */
 @media (max-width: 960px) {
+  .cs-layout { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .cs-aside { position: static; order: -1; margin-bottom: 40px; }
   .skills { grid-template-columns: repeat(2, 1fr); }
   .flagship { grid-template-columns: 1fr; }
   .flagship__visual { border-right: 0; border-bottom: 1px solid var(--border); }
@@ -538,6 +623,11 @@ html.modal-open { overflow: hidden; }
 
 @media (max-width: 640px) {
   :root { --gutter: 16px; --section-gap: 72px; }
+  .cs-title { font-size: 34px; }
+  .cs-tagline { font-size: 17px; }
+  .cs-shots { grid-template-columns: 1fr; }
+  .cs-pn { max-width: none; flex: 1; }
+  .lightbox__nav { display: none; }
   body { font-size: 16px; }
   .section__title { font-size: 24px; margin-bottom: 28px; }
   .hero { padding-top: 64px; }

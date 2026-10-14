@@ -1,0 +1,19 @@
+$ zonny deploy env
+                                Environment Profile
+┌──────────────────────────┬──────────────────────────────────────────────────────┐
+│ OS                       │ windows (x86_64)                                     │
+│ Cloud Context            │ local                                                │
+│ CI                       │ no                                                   │
+│ Docker Daemon            │ not running                                          │
+│ K8s Context              │ default                                              │
+│ AWS Region               │ —                                                    │
+│ GCP Project              │ —                                                    │
+│ Azure Sub                │ —                                                    │
+│ RAM                      │ 34.05 GB                                             │
+│ CPU Cores                │ 16                                                   │
+│ Disk Free                │ 244.14 GB                                            │
+│ Tools Found              │ docker, docker-compose, kubectl                      │
+│ Tools Missing            │ helm, flyctl, railway, gcloud, aws, az, terraform,   │
+│                          │ heroku, pulumi                                       │
+└──────────────────────────┴──────────────────────────────────────────────────────┘
+Tip: Install flyctl to unlock fly.io deployments.

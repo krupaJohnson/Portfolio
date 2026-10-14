@@ -1,0 +1,9 @@
+$ zonny tree build
+✓ Tree built: 831 entities from 79 files
+
+Languages:
+  • unknown: 11 files
+  • python: 68 files
+
+Output: .zonny/tree.json
+→ Run zonny tree enrich to add semantic labels (Condition 4)

@@ -1,0 +1,19 @@
+$ zonny deploy scan
+                   Deploy Profile — demo-app
+┌──────────────────────┬───────────────────────────────────────┐
+│ Language             │ node 20                               │
+│ Framework            │ express                               │
+│ Entry Point          │ server.js                             │
+│ Port                 │ 3000                                  │
+│ Build Cmd            │ npm install                           │
+│ Start Cmd            │ node server.js                        │
+│ Databases            │ none                                  │
+│ Env Vars             │ PORT                                  │
+│ Static Assets        │ yes                                   │
+│ Est. Memory          │ 256MB                                 │
+│ Best Targets         │ docker > docker-compose > ecs-fargate │
+└──────────────────────┴───────────────────────────────────────┘
+
+Profile written to .zonny/deploy-profile.json
+
+Next: zonny deploy plan (requires zonny-ai) or zonny deploy generate
