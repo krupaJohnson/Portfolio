@@ -1,0 +1,18 @@
+$ docker compose -f foundry/docker-compose.yml ps
+SERVICE       IMAGE                           STATUS
+foundry-api   foundry-foundry-api             Up 16 minutes (healthy)
+memgraph      memgraph/memgraph:latest        Up 16 minutes (healthy)
+minio         minio/minio:latest              Up 16 minutes (healthy)
+qdrant        qdrant/qdrant:latest            Up 16 minutes (healthy)
+redis         redis:7-alpine                  Up 16 minutes (healthy)
+timescaledb   timescale/timescaledb-ha:pg16   Up 16 minutes (healthy)
+
+$ cd foundry && python scripts/health_check.py
+[FOUNDRY HEALTH CHECK]
+Memgraph      bolt://localhost:7688        ✓  LIVE
+TimescaleDB   localhost:5434               ✓  LIVE
+Qdrant        localhost:6335               ✓  LIVE
+Redis         localhost:6380               ✓  LIVE
+MinIO         localhost:9002               ✓  LIVE
+
+All services operational.

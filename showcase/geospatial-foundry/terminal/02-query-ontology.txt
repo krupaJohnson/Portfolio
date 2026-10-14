@@ -1,0 +1,45 @@
+$ cd foundry && python scripts/query_ontology.py
+
+═══════════════════════════════════════
+FOUNDRY ONTOLOGY — current state
+═══════════════════════════════════════
+
+CLASS: Aircraft  [status: active]  [version: 1]  [observations: 1]
+  parent: MovingObject
+  properties (8):
+    altitude               FLOAT    measurement.altitude         confidence: 0.95
+    callsign               STRING   label                        confidence: 0.95
+    icao24                 STRING   identifier                   confidence: 0.99
+    latitude               FLOAT    spatial.lat                  confidence: 0.99  paired→longitude
+    longitude              FLOAT    spatial.lon                  confidence: 0.99  paired→latitude
+    on_ground              BOOL     state.boolean                confidence: 0.92
+    origin_country         STRING   attribute.country            confidence: 0.92
+    velocity               FLOAT    measurement.velocity         confidence: 0.95
+
+CLASS: Event  [status: active]  [version: 1]  [observations: 0]
+  properties (5):
+    description            STRING   attribute.text               confidence: 1.0
+    event_id_src           STRING   identifier                   confidence: 1.0
+    event_type             STRING   attribute.category           confidence: 1.0
+    severity               STRING   attribute.severity           confidence: 1.0
+    timestamp              DATETIME temporal.datetime            confidence: 1.0
+
+CLASS: Location  [status: active]  [version: 1]  [observations: 0]
+  properties (4):
+    latitude               FLOAT    spatial.lat                  confidence: 1.0  paired→longitude
+    location_type          STRING   attribute.category           confidence: 1.0
+    longitude              FLOAT    spatial.lon                  confidence: 1.0  paired→latitude
+    name                   STRING   label                        confidence: 1.0
+
+CLASS: MovingObject  [status: active]  [version: 1]  [observations: 0]
+  properties (0):
+
+CLASS: Organization  [status: active]  [version: 1]  [observations: 0]
+  properties (4):
+    country                STRING   attribute.country            confidence: 1.0
+    name                   STRING   label                        confidence: 1.0
+    org_id                 STRING   identifier                   confidence: 1.0
+    org_type               STRING   attribute.category           confidence: 1.0
+
+CLASS: Vessel  [status: active]  [version: 2]  [observations: 50]
+  parent: MovingObject

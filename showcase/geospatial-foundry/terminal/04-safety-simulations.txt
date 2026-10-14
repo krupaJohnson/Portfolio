@@ -1,0 +1,32 @@
+$ cd foundry && python scripts/simulate_conflict.py
+
+[SIM-CONFLICT] summary: {'class_id': '00000000-0000-0000-0000-000000000002', 'processed_fields': 7, 'written_properties': 0, 'conflicts': 1, 'rescued': 0, 'rescue_objects': ['rescue/2026/10/14/simulate_conflict_Aircraft_altitude_9e5cab08f168402c9807aa796bf1dd69.json'], 'events': ['27a36bbb-031a-4a9f-ad14-9a6818b02ece']}
+[SIM-CONFLICT] type_conflict rows before=214 after=215
+[SIM-CONFLICT] PASS
+
+$ cd foundry && python scripts/simulate_rescue.py
+
+[SIM-RESCUE] summary: {'class_id': '00000000-0000-0000-0000-000000000002', 'processed_fields': 6, 'written_properties': 0, 'conflicts': 0, 'rescued': 2, 'rescue_objects': ['rescue/2026/10/14/simulate_rescue_Aircraft_squawk_5e89f5f9e966431ea6b638cec81b1ce3.json', 'rescue/2026/10/14/simulate_rescue_Aircraft_mystery_field_12a010eb81da4304b1c365130ec117b8.json'], 'events': ['0ea70e9e-160c-4e0b-aa3d-a0fe5c83eba7', '6886f701-dea5-4d27-b7cf-f31f531cf847']}
+[SIM-RESCUE] PASS
+
+$ cd foundry && python scripts/simulate_cascade.py
+[SIMULATE] Injecting type conflict on MovingObject (parent class)...
+[SIMULATE-CASCADE] details: {'cascade_events': 2, 'warning_ok': True, 'unchanged_ok': True, 'propagate_ok': True}
+
+$ cd foundry && python scripts/simulate_ghost.py
+
+
+[SIMULATE] Created GhostTestClass (auto_generated=True, observations=2, age=25h)
+[GHOST GUARD] Ghosted: GhostTestClass (observations: 2, age: 25h)
+[SIMULATE] Cleaned up GhostTestClass.
+[SIMULATE-GHOST] details: {'status_ok': True, 'event_ok': True, 'embedding_ok': True, 'ghosted_count': 1}
+
+$ cd foundry && python scripts/simulate_rollback.py
+
+[SIMULATE-ROLLBACK] details: {'rollback_applied': True, 'temp_deleted': True, 'prop_count_before': 14, 'prop_count_after': 14, 'version_before': 2, 'version_after': 2, 'rolled_back_flag': True, 'rollback_event_ok': True}
+
+$ cd foundry && python scripts/simulate_source_death.py
+[SIMULATE] Patching OpenSky last_pull to 60 minutes ago...
+[SIMULATE] Restoring OpenSky connector...
+[SIMULATE-SOURCE-DEATH] details: {'dead_detected': True, 'source_died_event': True, 'recovered': True}
+

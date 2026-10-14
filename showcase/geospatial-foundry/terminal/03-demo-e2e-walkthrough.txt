@@ -1,0 +1,107 @@
+$ cd foundry && python scripts/demo_e2e.py   # scripted walkthrough; does not write to the stores
+
+============================================================
+  FOUNDRY - End-to-End Governance Loop Demo
+  Governance-First Self-Extending Ontology Engine
+============================================================
+
+  Mode: OFFLINE (synthetic)
+  Loop: Observe -> Propose -> Score -> Validate -> Apply/Quarantine -> Audit -> Rollback
+
+
+  -- Step 1: Ingest - receive new streaming record
+     icao24:                A1B2C3
+     callsign:              UAL123
+     latitude:              37.619
+     longitude:             -122.374
+     altitude:              3500.0
+     velocity:              420.5
+     on_ground:             False
+
+  OK Record received from ADS-B feed (7 fields)
+
+  -- Step 2: Fingerprint - classify field types and semantic tags
+     icao24:                string       sem=aircraft.identifier            conf=0.96
+     callsign:              string       sem=aircraft.label                 conf=0.94
+     latitude:              float        sem=spatial.lat                    conf=0.99
+     longitude:             float        sem=spatial.lon                    conf=0.99
+     altitude:              float        sem=aircraft.position.altitude     conf=0.97
+     velocity:              float        sem=aircraft.motion.velocity       conf=0.96
+     on_ground:             bool         sem=aircraft.state.ground          conf=0.95
+
+  OK 7 fields fingerprinted via rule-tier classifier
+
+  -- Step 3: Overlap - compute structural + semantic similarity to ontology
+     Aircraft:              0.7778  ###############
+     Location:              0.2857  #####
+     Vessel:                0.2222  ####
+
+  Best match: Aircraft  score=0.7778
+  Thresholds: extend≥0.7  quarantine∈[0.35,0.7)  create<0.35  merge≥0.85
+
+  -- Step 4: Boundary decision - classify incoming schema
+
+  Decision: EXTEND_EXISTING  ->  target class: Aircraft
+  OK Boundary decision made - justified by overlap score 0.7778
+
+  -- Step 5: Governance - write audit event with full provenance
+     event_id:              cce7e9da-8004-47...
+     event_type:            prop_added
+     entity_id:             c0d3e370-7102-45...
+     triggered_by:          connector_event
+     source:                adsb_opensky
+     confidence:            0.96
+     reason:                Schema consistent with Aircraft - score 0.7778
+
+  OK Provenance-complete event written to audit trail
+
+  -- Step 6: Monitor - ghost guard + cascade guard checks
+
+  Ghost Guard   : PASS  - source 'adsb_opensky' is alive (< 5 min stale)
+  Cascade Guard : PASS  - no high-fan-out class at risk
+  Source Monitor: PASS  - connector healthy, last seen < 60s
+
+  -- Step 7: Drift injection - simulate type conflict (float->string on altitude)
+     altitude (observed type): STRING  <- was FLOAT
+     altitude (expected type): FLOAT
+     confidence after conflict: 0.55  <- below threshold
+
+  WARN Type conflict detected: altitude changed FLOAT -> STRING
+
+  -- Step 8: Quarantine - ambiguous payload routed to rescue store
+     decision:              QUARANTINE
+     event_type:            type_conflict
+     event_id:              0ca018a3-4aa0-46...
+     payload:               -> rescued to MinIO (quarantine bucket)
+     class status:          entity set to QUARANTINE pending human/auto review
+
+  ⚠ Record quarantined - preserved in MinIO rescue bucket
+  OK Conflict event written to audit trail with provenance
+
+  -- Step 9: Rollback - revert event_id_1 (simulated bad prop_added)
+
+  Rolling back event: cce7e9da-8004-47...
+     action:                delete_property from Memgraph
+     rollback_event_id:     787ce8dc-b390-40...
+     original_event rolled_back: True
+
+  OK Property removed from Memgraph graph store
+  OK Rollback event written - original event flagged rolled_back=True
+
+  -- Step 10: Summary - full audit trail
+
+  #    event_type           decision             severity   rolled_back
+  ---------------------------------------------------------------------------
+  1    prop_added           extend_existing       info       YES
+  2    type_conflict        quarantine            warning    no
+  3    structural_change    rollback              warning    no
+
+  Total events:           3
+  Rolled back:            1
+  Quarantined:            1
+  Provenance complete:    3/3 (100%)
+
+============================================================
+  OK  Full governance loop demonstrated successfully
+============================================================
+

@@ -1,0 +1,36 @@
+$ cd foundry && python scripts/run_paper_eval.py --skip-live
+============================================================
+FOUNDRY - Paper Evaluation Runner
+============================================================
+[EVAL] Dataset: 190 events  SHA-256: 82d2f9e2f264df49...
+[EVAL] Running configurations...
+  XX  baseline_always_extend         acc=34.2%  err=125
+  XX  baseline_always_create         acc=34.2%  err=125
+  OK  structural_only                acc=84.2%  err=30
+  OK  semantic_only                  acc=84.2%  err=30
+  OK  no_quarantine                  acc=52.6%  err=90
+  OK  aggressive_extend              acc=63.2%  err=70
+  OK  conservative                   acc=57.9%  err=80
+  OK  full_model                     acc=84.2%  err=30
+
+[EVAL] Ablation summary:
+  Config                          Accuracy  Delta vs Full
+  -------------------------------------------------------
+  baseline_always_extend            34.2%     -50.0%  
+  baseline_always_create            34.2%     -50.0%  
+  structural_only                   84.2%      +0.0%  
+  semantic_only                     84.2%      +0.0%  
+  no_quarantine                     52.6%     -31.6%  
+  aggressive_extend                 63.2%     -21.0%  
+  conservative                      57.9%     -26.3%  
+  full_model                        84.2%      +0.0%  <- OURS
+
+[EVAL] JSON report: foundry/reports/paper_eval_20261014_085740.json
+[EVAL] Markdown report: foundry/reports/paper_eval_20261014_085740.md
+
+[EVAL] Paper readiness gates:
+  OK G1: Full model (84.2%) beats baselines by >20pp (margin=+50.0%)
+  OK G2: Quarantine removal degrades accuracy by >=5pp (delta=+31.6%)
+  OK G3: Full model accuracy >= 60% (actual=84.2%)
+
+  Overall: READY FOR PAPER  OK

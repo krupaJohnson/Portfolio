@@ -472,6 +472,17 @@ svg { display: block; }
 .cs-diagram { padding: 20px; border: 1px solid var(--border); border-radius: var(--radius);
   background: radial-gradient(var(--dot) 1px, transparent 1px) 0 0 / 20px 20px, var(--bg); }
 .cs-diagram .diagram { max-width: none; }
+.cs-diagrams { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.cs-diagram-fig { margin: 0; }
+.cs-diagram-fig a {
+  display: block; position: relative; max-height: 520px; overflow: hidden;
+  border: 1px solid var(--border); border-radius: var(--radius); background: #1F1E1B; transition: border-color .2s;
+}
+.cs-diagram-fig a::after { content: ""; position: absolute; inset: auto 0 0; height: 90px; background: linear-gradient(transparent, #1F1E1B); }
+.cs-diagram-fig a:hover { border-color: var(--accent); }
+.cs-diagram-fig img { display: block; width: 100%; height: auto; }
+.cs-diagram-fig figcaption { font-size: 14px; color: var(--muted); margin-top: 10px; line-height: 1.5; }
+.cs-diagram-fig figcaption .mono { color: var(--accent); font-size: 12.5px; white-space: nowrap; }
 .cs-term { margin: 0 0 28px; }
 .cs-term .term__body {
   min-height: 0; font-size: 12.5px; line-height: 1.6; max-height: 520px; overflow: auto;
@@ -626,6 +637,7 @@ html.modal-open { overflow: hidden; }
   .cs-title { font-size: 34px; }
   .cs-tagline { font-size: 17px; }
   .cs-shots { grid-template-columns: 1fr; }
+  .cs-diagrams { grid-template-columns: minmax(0, 1fr); }
   .cs-pn { max-width: none; flex: 1; }
   .lightbox__nav { display: none; }
   body { font-size: 16px; }

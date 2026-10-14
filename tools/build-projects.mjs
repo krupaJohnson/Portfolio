@@ -49,12 +49,15 @@ function parseKit(slug) {
   }
   const captions = name => Object.fromEntries((sections[name] || '').split('\n')
     .map(l => l.match(/^- (\S+)\s+[—-]\s+(.+)$/)).filter(Boolean).map(m => [m[1], m[2].trim()]));
-  const shotCaps = captions('Screenshots'), termCaps = captions('Terminal captures');
+  const shotCaps = captions('Screenshots'), termCaps = captions('Terminal captures'), diagCaps = captions('Diagrams');
+  // Listed files first, in the order project.md lists them; anything unlisted after, by name
+  const byList = (files, caps) => { const order = Object.keys(caps); const rank = f => (order.indexOf(f) + 1) || 999; return files.sort((a, b) => rank(a) - rank(b) || a.localeCompare(b)); };
   const list = (sub, ext) => { const d = path.join(dir, sub); return fs.existsSync(d) ? fs.readdirSync(d).filter(f => f.endsWith(ext)).sort() : []; };
   return {
     slug, dir, meta, sections,
-    shots: list('screenshots', '.png').map(f => ({ file: f, caption: shotCaps[f] || '' })),
-    terms: list('terminal', '.txt').map(f => ({ file: f, caption: termCaps[f] || '', text: fs.readFileSync(path.join(dir, 'terminal', f), 'utf8').replace(/\r\n/g, '\n').trimEnd() })),
+    shots: byList(list('screenshots', '.png'), shotCaps).map(f => ({ file: f, caption: shotCaps[f] || '' })),
+    diagrams: byList(list('diagrams', '.svg'), diagCaps).map(f => ({ file: f, caption: diagCaps[f] || '' })),
+    terms: byList(list('terminal', '.txt'), termCaps).map(f => ({ file: f, caption: termCaps[f] || '', text: fs.readFileSync(path.join(dir, 'terminal', f), 'utf8').replace(/\r\n/g, '\n').trimEnd() })),
   };
 }
 
@@ -72,6 +75,16 @@ async function buildImages(kit) {
       if (!fs.existsSync(dst) || fs.statSync(dst).mtimeMs < fs.statSync(src).mtimeMs)
         await sharp(src).resize({ width: Math.min(w, meta.width) }).webp({ quality: 78 }).toFile(dst);
     }
+  }
+  // Diagrams are served as SVG (small once compressed, sharp at any zoom). They're shown via <img>, so any
+  // script inside could never run, but refuse anything scripted or externally linked anyway.
+  for (const d of kit.diagrams) {
+    const svg = fs.readFileSync(path.join(kit.dir, 'diagrams', d.file), 'utf8');
+    if (/<script|\son[a-z]+\s*=|<foreignObject|href\s*=\s*["']https?:/i.test(svg)) throw new Error(`${kit.slug}/${d.file}: SVG contains scripts or external links`);
+    const vb = svg.match(/viewBox="\s*[\d.-]+\s+[\d.-]+\s+([\d.]+)\s+([\d.]+)"/);
+    d.w = vb ? Math.round(+vb[1]) : 800; d.h = vb ? Math.round(+vb[2]) : 600;
+    d.src = `/assets/projects/${kit.slug}/${d.file}`;
+    fs.copyFileSync(path.join(kit.dir, 'diagrams', d.file), path.join(out, d.file));
   }
 }
 
@@ -106,6 +119,19 @@ function page(kit, prev, next) {
           </figure>`).join('\n          ')}
         </div>
       </section>` : '';
+
+  const kitDiagrams = kit.diagrams.length ? `
+        <section class="cs-section">
+          <h2>Architecture</h2>
+          <div class="cs-diagrams">
+            ${kit.diagrams.map(d => `<figure class="cs-diagram-fig">
+              <a href="${d.src}" target="_blank" rel="noopener" aria-label="Open full-size diagram: ${esc(d.caption || d.file)}">
+                <img src="${d.src}" width="${d.w}" height="${d.h}" alt="${esc(d.caption || d.file)}" loading="lazy" decoding="async">
+              </a>
+              ${d.caption ? `<figcaption>${esc(d.caption)} <span class="mono">Open full size ↗</span></figcaption>` : ''}
+            </figure>`).join('\n            ')}
+          </div>
+        </section>` : '';
 
   const diagram = DIAGRAMS[m.diagram] ? `
         <section class="cs-section">
@@ -179,7 +205,7 @@ function page(kit, prev, next) {
       ${gallery}
 
       <div class="cs-layout">
-        <article class="cs-body">${section('Overview', md('Overview'))}${diagram}${section('How it works', md('How it works'))}${section('Features', md('Features'))}${section('Results', md('Results'))}${section('Challenges and decisions', md('Challenges and decisions'))}${terms}${section('Run it', md('Run it'))}${section('About these captures', md('Note on these captures'), 'cs-note')}
+        <article class="cs-body">${section('Overview', md('Overview'))}${diagram}${section('How it works', md('How it works'))}${kitDiagrams}${section('Features', md('Features'))}${section('Results', md('Results'))}${section('Challenges and decisions', md('Challenges and decisions'))}${terms}${section('Run it', md('Run it'))}${section('About these captures', md('Note on these captures'), 'cs-note')}
         </article>
 
         <aside class="cs-aside" aria-label="At a glance">

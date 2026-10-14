@@ -1,0 +1,7 @@
+$ cd foundry && python scripts/api_smoke.py
+[API-SMOKE] Importing FastAPI app...
+[API-SMOKE] GET /                               PASS (200)
+[API-SMOKE] GET /api/v1/system/health           PASS (200)
+[API-SMOKE] GET /api/v1/ontology/classes        PASS (200)
+[API-SMOKE] GET /api/v1/geo/stats               PASS (200)
+[API-SMOKE] Stage 8 API smoke checks passed.

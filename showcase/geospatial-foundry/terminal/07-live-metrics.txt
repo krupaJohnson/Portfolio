@@ -1,0 +1,39 @@
+$ cd foundry && python scripts/compute_metrics.py
+============================================================
+FOUNDRY - System Metrics Computation
+============================================================
+[METRICS] Querying live DB (last 30 days)...
+[METRICS] Total events: 90
+[METRICS] Rollback rate: 1.11%
+[METRICS] Source: live_db
+[METRICS] JSON saved: foundry/reports/metrics_20261014_085740.json
+[METRICS] Markdown saved: foundry/reports/metrics_20261014_085740.md
+
+$ cat foundry/reports/metrics_20261014_085740.md
+## Core Metrics
+
+| Metric | Value |
+|---|---|
+| Total events | 90 |
+| Auto events | 90 |
+| Rollback rate | 1.11% |
+| Quarantine events | 53 |
+| Quarantine escape rate | 0.00% |
+| Provenance completeness | 2.22% |
+
+## Event / Decision Distribution
+
+| Type | Count | % |
+|---|---:|---:|
+| Schema Drift | 53 | 58.9% |
+| Type Conflict | 31 | 34.4% |
+| Class Added | 2 | 2.2% |
+| Source Died | 2 | 2.2% |
+| Class Deprecated | 1 | 1.1% |
+| Prop Added | 1 | 1.1% |
+
+## Provenance Completeness Trend
+
+| Date | Total | Complete | Rate |
+|---|---:|---:|---:|
+| 2026-10-14 | 90 | 2 | 2.2% |
