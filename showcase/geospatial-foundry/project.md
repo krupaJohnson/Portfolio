@@ -64,9 +64,9 @@ Captured on 14 Oct 2026 on a separate Windows 11 machine with Docker Desktop and
 - foundry_complete_data_structures.svg — Core data structures: every field of ClassNode, PropertyDescriptor and RelationshipEdge, and the failure mode it exists to handle.
 
 ## Screenshots
+- 03-ontology-graph.png — The ontology in Memgraph Lab: 6 classes (red) with their properties, linked by relationships such as EXTENDS, OCCURRED_AT, FLEW_OVER and REGISTERED_TO.
 - 01-platform-dashboard.png — The platform dashboard: all five stores healthy, 914 ontology change events, recent automatic changes, and the live sources feeding the system.
 - 02-earth-view.png — The live Earth view in Cesium, plotting real aircraft, vessels, earthquakes and satellites, next to the ontology activity feed.
-- 03-ontology-graph.png — The ontology in Memgraph Lab: 6 classes (red) with their properties, linked by relationships such as EXTENDS, OCCURRED_AT, FLEW_OVER and REGISTERED_TO.
 - 04-api-docs.png — The FastAPI service with its four routers: system, ontology engine, geospatial tracking and live sources.
 - 05-api-live-audit-query.png — A live query of the audit trail: each change event carries its before and after state and its provenance.
 - 06-qdrant-embeddings.png — Qdrant's ontology_embeddings collection: 768-dimensional embeddings for each class, with metadata used for filtering.
