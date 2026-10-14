@@ -1,0 +1,19 @@
+$ supabase start      # local Supabase in Docker: Postgres, Auth, PostgREST, Kong
+Applying migration 20250912104021_dawn_cake.sql...
+Applying migration 20250912110000_fix_user_creation.sql...
+Applying migration 20250912110100_fix_transaction_creation.sql...
+Applying migration 20250912110200_wishlist.sql...
+Applying migration 20250912110300_group_policies.sql...
+Starting containers...
+Started supabase local development setup.
+
+         API URL: http://127.0.0.1:54321
+    Database URL: postgresql://postgres:postgres@127.0.0.1:54322/postgres
+
+$ psql -At -c "select relname, relrowsecurity from pg_class where relnamespace = 'public'::regnamespace and relkind = 'r' order by relname"
+group_goals | t
+group_members | t
+groups | t
+transactions | t
+users | t
+wishlist_items | t
